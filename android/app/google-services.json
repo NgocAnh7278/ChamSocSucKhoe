@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "569023463654",
+    "firebase_url": "https://chamsocsuckhoe-b8cf9.firebaseio.com",
+    "project_id": "chamsocsuckhoe-b8cf9",
+    "storage_bucket": "chamsocsuckhoe-b8cf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569023463654:android:c021621eb2e9fadccc7b27",
+        "android_client_info": {
+          "package_name": "com.chamsocsuckhoe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569023463654-7mkci658tdo0t2l68hdjtsph8t95amrd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI0FuAyMsZWVpm0WCMEfLi7x9sXO5mQmw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569023463654-7mkci658tdo0t2l68hdjtsph8t95amrd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
