@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,7 +7,7 @@ import {
   FlatList,
   ActivityIndicator,
 } from 'react-native';
-import {COLOR_DEEPSKY_BLUE} from '../../asset/MyColor';
+import { COLOR_DEEPSKY_BLUE } from '../../asset/MyColor';
 import {
   IP_SERVER,
   LAY_THUC_DON,
@@ -19,12 +19,12 @@ import DanhSachBuaAnComponent from '../../components/quan-ly-thuc-don/DanhSachBu
 import * as Progress from 'react-native-progress';
 import DatePicker from 'react-native-datepicker';
 import moment from 'moment';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as actions from '../../redux/actions';
 import Loader from '../../components/Loader';
 
 class QuanLyThucDonActivity extends Component {
-  menuList = [{id: '1'}, {id: '2'}, {id: '3'}, {id: '4'}];
+  menuList = [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
 
   setStateAsync(state) {
     return new Promise(resolve => {
@@ -253,12 +253,17 @@ class QuanLyThucDonActivity extends Component {
               borderColor:
                 this.state.thongTinCacNgayDaAn.length > 0
                   ? this.state.thongTinCacNgayDaAn.find(
-                      w =>
-                        w.NgayAn ===
-                        moment(item, DATE_FORMAT).format(DATE_FORMAT_COMPARE),
-                    ).Calo === 0
-                    ? 'black'
-                    : '#3385ff'
+                    w =>
+                      w.NgayAn ===
+                      moment(item, DATE_FORMAT).format(DATE_FORMAT_COMPARE),
+                  ) !== undefined ? this.state.thongTinCacNgayDaAn.find(
+                    w =>
+                      w.NgayAn ===
+                      moment(item, DATE_FORMAT).format(DATE_FORMAT_COMPARE),
+                  ).Calo === 0
+                      ? 'black'
+                      : '#3385ff'
+                    : 'black'
                   : 'black',
             },
             {
@@ -274,11 +279,11 @@ class QuanLyThucDonActivity extends Component {
           onPress={() => this.onPress(item)}>
           <Text
             style={[
-              {marginTop: 3},
+              { marginTop: 3 },
               {
                 backgroundColor:
                   moment(item, DATE_FORMAT).format('DD') !==
-                  moment().format('DD')
+                    moment().format('DD')
                     ? 'transparent'
                     : '#80ffcc',
               },
@@ -295,7 +300,7 @@ class QuanLyThucDonActivity extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.calendar}>
-          <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{ flex: 1, flexDirection: 'row' }}>
             <View>
               {this.props.isLoading ? (
                 <View
@@ -308,7 +313,7 @@ class QuanLyThucDonActivity extends Component {
                 </View>
               ) : null}
             </View>
-            <View style={{flex: 7}}>
+            <View style={{ flex: 7 }}>
               <Progress.Bar
                 progress={this.getProgress()}
                 animated={false}
@@ -316,14 +321,14 @@ class QuanLyThucDonActivity extends Component {
                 height={25}
               />
             </View>
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
               <DatePicker
                 // minDate={this.props.thucDon.NgayTao}
                 mode="date"
                 format={DATE_FORMAT}
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
-                style={{width: 25, height: 25}}
+                style={{ width: 25, height: 25 }}
                 customStyles={{
                   dateIcon: {
                     width: 25,
@@ -343,7 +348,7 @@ class QuanLyThucDonActivity extends Component {
               />
             </View>
           </View>
-          <View style={{flex: 1, alignItems: 'center', marginTop: 5}}>
+          <View style={{ flex: 1, alignItems: 'center', marginTop: 5 }}>
             <Text>
               Tuần {this.tinhSoTuan()} -{' '}
               {moment(this.props.ngayChon, DATE_FORMAT).format('DD/MM/YYYY')}{' '}
@@ -360,25 +365,25 @@ class QuanLyThucDonActivity extends Component {
           </View>
         </View>
         <View style={styles.calo}>
-          <View style={[{flex: 2, flexDirection: 'row'}]}>
+          <View style={[{ flex: 2, flexDirection: 'row' }]}>
             <View style={styles.mucTieu}>
               <Text style={styles.caloTopText}>
                 {this.props.thucDon === null ||
-                this.props.thucDon.TongNangLuong === null
+                  this.props.thucDon.TongNangLuong === null
                   ? 0
                   : this.props.thucDon.TongNangLuong}
               </Text>
               <Text>Mục tiêu</Text>
             </View>
             <View style={styles.nganCach}>
-              <Text style={{fontSize: 24}}> - </Text>
+              <Text style={{ fontSize: 24 }}> - </Text>
             </View>
             <View style={styles.thucAn}>
               <Text style={styles.caloTopText}>{this.tinhCaloDaAn()}</Text>
               <Text>Thức ăn</Text>
             </View>
             <View style={styles.nganCach}>
-              <Text style={{fontSize: 24}}> = </Text>
+              <Text style={{ fontSize: 24 }}> = </Text>
             </View>
             <View style={styles.conLai}>
               <Text
@@ -390,8 +395,8 @@ class QuanLyThucDonActivity extends Component {
                 {this.props.thucDon === null
                   ? 0
                   : this.tinhThucAnConLai() > 0
-                  ? this.tinhThucAnConLai()
-                  : this.tinhThucAnConLai() * -1}
+                    ? this.tinhThucAnConLai()
+                    : this.tinhThucAnConLai() * -1}
               </Text>
               <Text>
                 {' '}
@@ -399,7 +404,7 @@ class QuanLyThucDonActivity extends Component {
               </Text>
             </View>
           </View>
-          <View style={{flex: 1}}>
+          <View style={{ flex: 1 }}>
             <View style={styles.caloBottom}>
               <TouchableOpacity
                 onPress={() => {
@@ -427,7 +432,7 @@ class QuanLyThucDonActivity extends Component {
         keyExtractor={(item, index) => index.toString()}
         data={this.menuList.map(item => item)}
         refreshing={this.state.isLoading}
-        renderItem={({item, index}) => {
+        renderItem={({ item, index }) => {
           return (
             <DanhSachBuaAnComponent
               key={item.id}
@@ -460,7 +465,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
   },
-  calendar: {flex: 2, borderBottomWidth: 2, marginBottom: 10},
+  calendar: { flex: 2, borderBottomWidth: 2, marginBottom: 10 },
   calo: {
     flex: 3,
     flexDirection: 'column',
@@ -495,7 +500,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: -5,
   },
-  menuFood: {flex: 10},
+  menuFood: { flex: 10 },
   lableTitle: {
     color: COLOR_DEEPSKY_BLUE,
     fontSize: 30,
